@@ -1,25 +1,37 @@
-Send a status update to the team via Telegram sync bot.
+When the user says things like "告诉合作人", "同步下进度", "通知合作人", "现在需要告诉合作人什么", or any intent to communicate status to their partner:
 
-Parse the user's input to extract:
-1. **kind** — one of: doing, block, handoff, decision, review_context
-2. **text** — the message content
+1. **Analyze current context** — look at what was just done in this conversation:
+   - Recent git commits/pushes
+   - PRs created/merged
+   - Issues opened/closed
+   - Code changes made
+   - Blockers encountered
+   - Decisions made
 
-If the user doesn't specify a kind, infer it:
-- Talking about what they're working on → doing
-- Talking about being stuck/blocked → block
-- Handing off work to someone → handoff
-- Making an architecture/design decision → decision
-- Asking someone to review with specific context → review_context
+2. **Compose a concise message** summarizing the key update. Keep it under 2 sentences.
 
-Execute:
-```bash
-cd $PROJECT_ROOT/telegram_sync_bot && python3 send_cli_update.py --kind <kind> --text "<text>"
-```
+3. **Infer the kind** based on context:
+   - Just finished work or made progress → `doing`
+   - Hit a problem that needs the partner → `block`
+   - Work is ready for partner to take over → `handoff`
+   - Made an architecture/design choice → `decision`
+   - Created a PR that needs review → `review_context`
 
-If `$PROJECT_ROOT/telegram_sync_bot` doesn't exist, look for `send_cli_update.py` in the current project's `telegram_sync_bot/` directory.
+4. **Show the user what you'll send** before sending. Example:
+   ```
+   准备发送:
+   [handoff] PR #30 已合并，路径修复 + PCP 微调完成。Day 1-7 通过率 96%，剩余 Day 4/6 偶发 FAIL 是 Groq 推理问题。
 
-If `send_cli_update.py` is not found anywhere, tell the user to set up the Telegram sync bot first.
+   发送？
+   ```
 
-If httpx is not installed, run: `pip install httpx`
+5. **After user confirms**, execute:
+   ```bash
+   python3 telegram_sync_bot/send_cli_update.py --kind <kind> --text "<message>"
+   ```
 
-After sending, confirm what was sent and to which topic.
+6. If `send_cli_update.py` is not in the current project, try the project's `telegram_sync_bot/` subdirectory.
+
+7. If the user says "不用了" or "算了", do not send.
+
+Do NOT auto-send without showing the user first. Always confirm.
