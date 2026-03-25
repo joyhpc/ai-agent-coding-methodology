@@ -115,6 +115,22 @@ A coding agent works best when success can be self-checked.
 
 Stable repo rules outperform re-explaining the same expectations every session.
 
+### Smallest Sufficient Context Beats Maximum Context
+
+Do not feed every available artifact into the same session.
+
+Prefer:
+
+- the right layer
+- the right source of truth
+- the smallest sufficient file set
+
+Too much mixed context produces false synthesis:
+
+- project-layer questions drift into implementation
+- execution-layer reviews inherit stale project assumptions
+- different repository copies get merged in the model's head
+
 ### Narrow Scope Beats Broad Ambition
 
 Well-scoped tasks outperform vague, end-to-end requests.
@@ -149,6 +165,20 @@ In these phases:
 Do not let the agent lead when the main difficulty is "figuring out what is true".
 
 Let the agent lead when the main difficulty is "turning an already-decided truth into artifacts".
+
+### Lock The Working Copy Before Review
+
+In multi-copy environments, no review or synthesis should begin until the working copy is explicit.
+
+First confirm:
+
+1. the active repository copy
+2. the source of truth for this layer
+3. the exact file set under review
+
+If multiple copies exist, the agent must discover and compare them before asking the human for help.
+
+The human should only decide when multiple plausible copies remain after local discovery.
 
 ### Agent Friendliness Is an Engineering Property
 

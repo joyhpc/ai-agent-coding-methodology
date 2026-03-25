@@ -44,6 +44,7 @@ It is an engineering system with six layers:
 
 - [docs/METHODOLOGY.md](docs/METHODOLOGY.md)
 - [docs/RULE_SYSTEM.md](docs/RULE_SYSTEM.md)
+- [playbooks/SESSION_LAYERING.md](playbooks/SESSION_LAYERING.md)
 - [playbooks/SINGLE_AGENT_WORKFLOW.md](playbooks/SINGLE_AGENT_WORKFLOW.md)
 - [playbooks/MULTI_AGENT_WORKFLOW.md](playbooks/MULTI_AGENT_WORKFLOW.md)
 - [research/2026-03-20-landscape.md](research/2026-03-20-landscape.md)
