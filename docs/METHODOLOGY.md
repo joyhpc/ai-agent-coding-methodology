@@ -129,6 +129,27 @@ The human role shifts from line-by-line implementation to:
 - acceptance
 - system improvement
 
+### Human-First In Convergence Phases
+
+When the bottleneck is judgment rather than execution, use `human-first, agent-second`.
+
+Typical convergence-phase tasks:
+
+- defining project goals
+- freezing boundaries
+- choosing a source of truth
+- resolving document ownership
+- deciding object identity, scope, and role
+
+In these phases:
+
+- the human should make the key decisions first
+- the agent should structure, rewrite, cross-check, and propagate the decision
+
+Do not let the agent lead when the main difficulty is "figuring out what is true".
+
+Let the agent lead when the main difficulty is "turning an already-decided truth into artifacts".
+
 ### Agent Friendliness Is an Engineering Property
 
 Clean repo structure, discoverable scripts, and explicit commands improve outcomes materially.
