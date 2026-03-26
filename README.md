@@ -43,6 +43,7 @@ It is an engineering system with six layers:
 ## Starting Points
 
 - [docs/METHODOLOGY.md](docs/METHODOLOGY.md)
+- [docs/HARDWARE_PROJECT_METHOD.md](docs/HARDWARE_PROJECT_METHOD.md)
 - [docs/RULE_SYSTEM.md](docs/RULE_SYSTEM.md)
 - [playbooks/SESSION_LAYERING.md](playbooks/SESSION_LAYERING.md)
 - [playbooks/SINGLE_AGENT_WORKFLOW.md](playbooks/SINGLE_AGENT_WORKFLOW.md)
