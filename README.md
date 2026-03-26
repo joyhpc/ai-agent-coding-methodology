@@ -49,6 +49,7 @@ It is an engineering system with six layers:
 - [playbooks/SINGLE_AGENT_WORKFLOW.md](playbooks/SINGLE_AGENT_WORKFLOW.md)
 - [playbooks/MULTI_AGENT_WORKFLOW.md](playbooks/MULTI_AGENT_WORKFLOW.md)
 - [research/2026-03-20-landscape.md](research/2026-03-20-landscape.md)
+- [templates/MANAGER_SESSION.md](templates/MANAGER_SESSION.md)
 
 ## Working Model
 
